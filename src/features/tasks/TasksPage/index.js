@@ -1,9 +1,9 @@
 import Form from "./Form/index";
 import TaskList from "./TaskList";
 import Buttons from "./Buttons";
-import Section from "../../common/Section";
-import Container from "../../common/Container";
-import Header from "../../common/Header";
+import Section from "../../../common/Section";
+import Header from "../../../common/Header";
+import Container from "../../../common/Container"
 
 // import Search from "./Search";
 import ExampleTasksButton from "./ExampleTasksButton";
