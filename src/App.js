@@ -1,10 +1,4 @@
-
-function App() {
-  return (
-    <div className="App">
-     Dzień dobry!
-    </div>
-  );
-}
+import TasksPage from "./tasks/TasksPage";
+const App = () => <TasksPage />;
 
 export default App;
