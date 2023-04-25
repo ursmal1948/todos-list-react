@@ -1,35 +1,31 @@
 // import { Link, useLocation } from "react-router-dom";
-// import { useSelector, useDispatch } from "react-redux";
 import { List, Item, Content, Button, StyledNavLink } from "./styled";
-// import {
-//   toggleTaskDone,
-//   removeTask,
-//   selectHideDone,
-//   selectTasksByQuery,
-// } from "../../tasksSlice";
-// import searchQueryParamName from "../searchQueryParamName";
-import tasks from "../../pureTasks";
+import {
+  removeTask,
+  selectHideDone,
+  selectTasks,
+  toggleTaskDone,
+} from "../../tasksSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const TaskList = () => {
-//   const location = useLocation();
-//   const query = new URLSearchParams(location.search).get(searchQueryParamName);
+  const dispatch = useDispatch();
+  const hideDone = useSelector(selectHideDone);
 
-//   const tasks = useSelector((state) => selectTasksByQuery(state, query));
-//   const hideDone = useSelector(selectHideDone);
-//   const dispatch = useDispatch();
+  const tasks = useSelector(selectTasks);
 
   return (
     <List>
       {tasks.map((task) => (
-        <Item key={task.id}>
-          <Button done >
+        <Item key={task.id} hidden={task.done && hideDone}>
+          <Button done onClick={() => dispatch(toggleTaskDone(task.id))}>
             {task.done ? "✔" : ""}
           </Button>
           <Content done={task.done}>
             {/* <StyledNavLink to={`/zadania/${task.id}`}>{task.content}</StyledNavLink> */}
             {task.content}
           </Content>
-          <Button remove>
+          <Button onClick={() => dispatch(removeTask(task.id))} remove>
             🗑
           </Button>
         </Item>
