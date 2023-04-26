@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+import { selectError } from "../tasksSlice";
 import Form from "./Form/index";
 import TaskList from "./TaskList";
 import Buttons from "./Buttons";
@@ -5,35 +7,30 @@ import Section from "../../../common/Section";
 import Header from "../../../common/Header";
 import Container from "../../../common/Container";
 
-// import Search from "./Search";
 import ExampleTasksButton from "./ExampleTasksButton";
-// import ErrorModal from "./ErrorModal";
-// import { useSelector } from "react-redux";
-// import { selectError } from "../tasksSlice";
+import ErrorModal from "./ErrorModal";
 
 function TasksPage() {
-  //   const error = useSelector(selectError);
-
-
+  const error = useSelector(selectError);
   return (
     <Container>
-      <>
-        <Header title="Lista zadań" />
-        <Section
-          title="Dodaj nowe zadanie"
-          extraHeaderContent={<ExampleTasksButton />}
-          body={<Form />}
-        />
-        {/* <Section
-            title="Wyszuiwarka"
-            body={<Search title="Filtruj zadania" />}
-          /> */}
-        <Section
-          title="Lista zadań"
-          extraHeaderContent={<Buttons />}
-          body={<TaskList />}
-        />
-      </>
+      {!error ? (
+        <>
+          <Header title="Lista zadań" />
+          <Section
+            title="Dodaj nowe zadanie"
+            extraHeaderContent={<ExampleTasksButton />}
+            body={<Form />}
+          />
+          <Section
+            title="Lista zadań"
+            extraHeaderContent={<Buttons />}
+            body={<TaskList />}
+          />
+        </>
+      ) : (
+        <Section title="Lista zadań" body={<ErrorModal />} />
+      )}
     </Container>
   );
 }
