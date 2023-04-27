@@ -52,8 +52,6 @@ export const {
   setError,
 } = tasksSlice.actions;
 
-export default tasksSlice.reducer;
-
 export const selectTasksState = (state) => state.tasks;
 
 export const selectTasks = (state) => selectTasksState(state).tasks;
@@ -61,3 +59,18 @@ export const selectHideDone = (state) => selectTasksState(state).hideDone;
 export const selectError = (state) => selectTasksState(state).error;
 export const selectLoading = (state) =>
   selectTasksState(state).fetching === "loading";
+
+export const getTaskById = (state, taskId) =>
+  selectTasks(state).find(({ id }) => id === taskId);
+
+export const selectTasksByQuery = (state, query) => {
+  const tasks = selectTasks(state);
+  if (!query) {
+    return tasks;
+  }
+  return tasks.filter(({ content }) =>
+    content.trim().toUpperCase().includes(query.trim().toUpperCase())
+  );
+};
+
+export default tasksSlice.reducer;
