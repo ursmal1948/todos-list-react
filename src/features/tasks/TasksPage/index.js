@@ -9,6 +9,7 @@ import Container from "../../../common/Container";
 
 import ExampleTasksButton from "./ExampleTasksButton";
 import ErrorModal from "./ErrorModal";
+import Search from "./Search";
 
 function TasksPage() {
   const error = useSelector(selectError);
@@ -16,12 +17,13 @@ function TasksPage() {
     <Container>
       {!error ? (
         <>
-          <Header title="Lista zadań" />
+          <Header title="Lista zadań  " />
           <Section
             title="Dodaj nowe zadanie"
             extraHeaderContent={<ExampleTasksButton />}
             body={<Form />}
           />
+          <Section title="Wyszukiwarka" body={<Search />} />
           <Section
             title="Lista zadań"
             extraHeaderContent={<Buttons />}
