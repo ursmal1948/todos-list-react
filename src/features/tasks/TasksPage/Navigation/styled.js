@@ -17,18 +17,14 @@ export const Item = styled.li``;
 
 const activeClassName = "active";
 
-export const StyledLink = styled.a`
+export const StyledNavLink = styled(NavLink).attrs(() => ({
+  activeClassName,
+}))`
   text-decoration: none;
   font-weight: ${({ theme }) => theme.fontWeightScale.medium};
   color: ${({ theme }) => theme.colors.white};
-  /* &.${activeClassName} {
-    font-weight: ${({ theme }) => theme.fontWeightScale.bold};
-  } */
-  &:active {
-    font-weight: ${({ theme }) => theme.fontWeightScale.bold};
 
+  &.${activeClassName} {
+    font-weight: ${({ theme }) => theme.fontWeightScale.bold};
   }
-
-
-
 `;
