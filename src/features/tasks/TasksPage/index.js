@@ -31,7 +31,7 @@ function TasksPage() {
           />
         </>
       ) : (
-        <Section title="Lista zadań" body={<ErrorModal />} />
+        <Section title="Wykryto błąd" body={<ErrorModal />} />
       )}
     </Container>
   );
