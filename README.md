@@ -6,9 +6,12 @@ Be welcome to visit my [website](https://ursmal1948.github.io/todos-list-react/)
 
 
 ## Description
- To do list is the project made within the course Frontend Developer at online school YouCode. This app allows user to add, remove, mark tasks as done. By clicking on the content of task you can its details like content and message whether task is done or not. You can as well get example tasks by clicking the button "Pobierz przykładowe zadania". This app also allows user to filter tasks in "Wyszukiwarka" section. Last but not least, user can feel free to see brief info about author of this project by going into "O autorze" in navigation.
+ To do list is the project made within the course Frontend Developer at online school YouCode. This app allows user to add, remove and mark tasks as done. By clicking on the content of task you can see its details like content and message whether task is done or not. You can as well get example tasks by clicking the button "Pobierz przykładowe zadania". This app also allows user to filter tasks in "Wyszukiwarka" section. Last but not least, user can feel free to see brief info about author of this project by going into "O autorze" in navigation.
 
  Feel free to try out my app😎
+ ##
+<img src="https://github.com/ursmal1948/todos-list-react/blob/main/public/animation__toDoList.gif" width="700px">
+
 
  ## Tools used in this project
  - HTML
