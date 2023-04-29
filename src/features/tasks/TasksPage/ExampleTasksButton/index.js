@@ -7,7 +7,7 @@ const ExampleTasksButton = () => {
   const isLoading = useSelector(selectLoading);
 
   return (
-    <Button onClick={() => dispatch(fetchExampleTasks())}>
+    <Button disabled={isLoading} onClick={() => dispatch(fetchExampleTasks())}>
       {!isLoading ? "Pobierz przykładowe zadania" : "Ładowanie..."}
     </Button>
   );
