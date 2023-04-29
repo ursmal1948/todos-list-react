@@ -56,6 +56,9 @@ export const selectTasksState = (state) => state.tasks;
 
 export const selectTasks = (state) => selectTasksState(state).tasks;
 export const selectHideDone = (state) => selectTasksState(state).hideDone;
+export const selectIsEveryTaskDone = (state) =>
+  selectTasks(state).every(({ done }) => done);
+export const selectAreTasksEmpty = (state) => selectTasks(state).length === 0;
 export const selectError = (state) => selectTasksState(state).error;
 export const selectLoading = (state) =>
   selectTasksState(state).fetching === "loading";
@@ -65,11 +68,12 @@ export const getTaskById = (state, taskId) =>
 
 export const selectTasksByQuery = (state, query) => {
   const tasks = selectTasks(state);
-  if (!query) {
+
+  if (!query || query.trim() === "") {
     return tasks;
   }
   return tasks.filter(({ content }) =>
-    content.trim().toUpperCase().includes(query.trim().toUpperCase())
+    content.toUpperCase().includes(query.trim().toUpperCase())
   );
 };
 
