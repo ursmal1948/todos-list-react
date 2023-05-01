@@ -8,9 +8,9 @@ import {
 } from "redux-saga/effects";
 import {
   fetchExampleTasks,
+  fetchExampleTasksSuccess,
   selectTasks,
-  setError,
-  setTasks,
+  fetchExampleTasksError,
 } from "./tasksSlice";
 import { getExampleTasks } from "./getExampleTasks";
 import { saveTasksInLocalStorage } from "./tasksLocalStorage";
@@ -19,9 +19,9 @@ function* fetchExampleTasksHandler() {
   try {
     yield delay(2000);
     const exampleTasks = yield call(getExampleTasks);
-    yield put(setTasks(exampleTasks));
+    yield put(fetchExampleTasksSuccess(exampleTasks));
   } catch (error) {
-    yield put(setError(error));
+    yield put(fetchExampleTasksError(error));
   }
 }
 
