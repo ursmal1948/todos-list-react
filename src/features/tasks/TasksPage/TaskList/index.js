@@ -8,6 +8,7 @@ import {
   selectTasksByQuery,
 } from "../../tasksSlice";
 import searchQueryParamName from "../searchQueryParamName";
+import { toTask } from "../../../../routes";
 
 const TaskList = () => {
   const hideDone = useSelector(selectHideDone);
@@ -25,7 +26,9 @@ const TaskList = () => {
             {task.done ? "✔" : ""}
           </Button>
           <Content done={task.done}>
-            <StyledNavLink to={`/zadania/${task.id}`}>{task.content}</StyledNavLink>
+            <StyledNavLink to={toTask({ id: task.id })}>
+              {task.content}
+            </StyledNavLink>
           </Content>
           <Button onClick={() => dispatch(removeTask(task.id))} remove>
             🗑
