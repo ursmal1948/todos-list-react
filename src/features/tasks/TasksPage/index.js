@@ -11,11 +11,14 @@ import ExampleTasksButton from "./ExampleTasksButton";
 import ErrorModal from "./ErrorModal";
 import Search from "./Search";
 
-function TasksPage() {
+const TasksPage = () => {
   const error = useSelector(selectError);
+
   return (
     <Container>
-      {!error ? (
+      {error ? (
+        <Section title="Wykryto błąd" body={<ErrorModal />} />
+      ) : (
         <>
           <Header title="Lista zadań  " />
           <Section
@@ -30,11 +33,9 @@ function TasksPage() {
             body={<TaskList />}
           />
         </>
-      ) : (
-        <Section title="Wykryto błąd" body={<ErrorModal />} />
       )}
     </Container>
   );
-}
+};
 
 export default TasksPage;
