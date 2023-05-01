@@ -2,6 +2,7 @@ import { useLocation, useHistory } from "react-router-dom";
 export const useQueryParameter = (param) => {
   const location = useLocation();
   const query = new URLSearchParams(location.search).get(param);
+
   return query;
 };
 export const useReplaceQueryParameter = () => {
@@ -16,7 +17,9 @@ export const useReplaceQueryParameter = () => {
     } else {
       params.set(key, value);
     }
+
     return history.push(`${location.pathname}?${params.toString()}`);
   };
+
   return replaceQueryParameter;
 };

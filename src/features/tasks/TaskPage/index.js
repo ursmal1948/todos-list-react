@@ -8,6 +8,7 @@ import { getTaskById } from "../tasksSlice";
 const TaskPage = () => {
   const { id } = useParams();
   const task = useSelector((state) => getTaskById(state, id));
+
   return (
     <Container>
       <Header title={"Szczegóły zadania"} />

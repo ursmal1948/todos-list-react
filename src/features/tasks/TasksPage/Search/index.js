@@ -14,6 +14,7 @@ const Search = () => {
       value: target.value.trim() !== "" ? target.value : undefined,
     });
   };
+
   return (
     <Wrapper>
       <Input
