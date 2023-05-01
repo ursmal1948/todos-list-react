@@ -28,6 +28,7 @@ Be welcome to visit my [website](https://ursmal1948.github.io/todos-list-react/)
  - GlobalStyle Component
  - Redux
  - Redux-Saga
+ - Redux Toolkit
  - React Router
 
 
