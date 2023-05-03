@@ -21,8 +21,8 @@ function* fetchExampleTasksHandler() {
     const exampleTasks = yield call(getExampleTasks);
     yield put(fetchExampleTasksSuccess(exampleTasks));
   } catch (error) {
-    yield put(fetchExampleTasksError(error));
-    yield call(alert, "Coś poszło nie tak")
+    yield put(fetchExampleTasksError());
+    yield call(alert, "Coś poszło nie tak");
   }
 }
 
