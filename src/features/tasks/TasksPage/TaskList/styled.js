@@ -9,10 +9,8 @@ export const List = styled.ul`
 export const Item = styled.li`
   padding: 10px;
   border-bottom: 1px solid #ddd;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   gap: 20px;
-  margin-top: 5px;
   align-items: center;
   margin: 5px 20px 20px 20px;
 
@@ -24,11 +22,12 @@ export const Item = styled.li`
 `;
 
 export const Content = styled.span`
+  flex-grow: 1;
   ${({ done }) =>
     done &&
     css`
       text-decoration: line-through;
-    `}
+    `};
 `;
 
 export const Button = styled.button`
